@@ -379,6 +379,7 @@
     <Content Include="form-elements-component.html" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="icon-themify.html" />
     <Content Include="label-badge.html" />
     <Content Include="map-google.html" />
