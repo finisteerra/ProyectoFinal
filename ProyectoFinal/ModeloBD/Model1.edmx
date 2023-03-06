@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProyectoProgramacionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="consecutivo_error" />
+          </Key>
+          <Property Name="consecutivo_error" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaHora" Type="datetime" Nullable="false" />
+          <Property Name="mensajeError" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="origen" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ceviche">
+          <Key>
+            <PropertyRef Name="codigo_ceviche" />
+          </Key>
+          <Property Name="codigo_ceviche" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="consecutivo_error" />
+          </Key>
+          <Property Name="consecutivo_error" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaHora" Type="datetime" Nullable="false" />
+          <Property Name="mensajeError" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="origen" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="codigo_usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="codigo_factura" />
+          </Key>
+          <Property Name="codigo_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_usuario" Type="int" Nullable="false" />
+          <Property Name="codigo_promocion" Type="int" Nullable="false" />
+          <Property Name="codigo_sucursal" Type="int" Nullable="false" />
+          <Property Name="total" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="codigo_promocion" />
+          </Key>
+          <Property Name="codigo_promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_promocion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descuento" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="codigo_proveedor" />
+          </Key>
+          <Property Name="codigo_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="apellido" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="compañia" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="pais" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedor_Ceviche">
+          <Key>
+            <PropertyRef Name="codigo_proveedor" />
+            <PropertyRef Name="codigo_ceviche" />
+          </Key>
+          <Property Name="codigo_proveedor" Type="int" Nullable="false" />
+          <Property Name="codigo_ceviche" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="codigo_rol" />
+          </Key>
+          <Property Name="codigo_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="codigo_sucursal" />
+          </Key>
+          <Property Name="codigo_sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_sucursal" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+          </Key>
+          <Property Name="codigo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="edad" Type="int" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasenna" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="int" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+          <Property Name="codigo_rol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario_Ceviche">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+            <PropertyRef Name="codigo_ceviche" />
+          </Key>
+          <Property Name="codigo_usuario" Type="int" Nullable="false" />
+          <Property Name="codigo_ceviche" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Error__codigo_us__33D4B598">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Error" Type="Self.Error" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="codigo_usuario" />
+            </Principal>
+            <Dependent Role="Error">
+              <PropertyRef Name="codigo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__codigo___3E52440B">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="codigo_usuario" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="codigo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__codigo___3F466844">
+          <End Role="Promocion" Type="Self.Promocion" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promocion">
+              <PropertyRef Name="codigo_promocion" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="codigo_promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__codigo___403A8C7D">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="codigo_sucursal" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="codigo_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__codig__3A81B327">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+          <End Role="Proveedor_Ceviche" Type="Self.Proveedor_Ceviche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="codigo_proveedor" />
+            </Principal>
+            <Dependent Role="Proveedor_Ceviche">
+              <PropertyRef Name="codigo_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__codig__3B75D760">
+          <End Role="Ceviche" Type="Self.Ceviche" Multiplicity="1" />
+          <End Role="Proveedor_Ceviche" Type="Self.Proveedor_Ceviche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ceviche">
+              <PropertyRef Name="codigo_ceviche" />
+            </Principal>
+            <Dependent Role="Proveedor_Ceviche">
+              <PropertyRef Name="codigo_ceviche" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__codigo___30F848ED">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="codigo_rol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="codigo_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario_C__codig__36B12243">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Usuario_Ceviche" Type="Self.Usuario_Ceviche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="codigo_usuario" />
+            </Principal>
+            <Dependent Role="Usuario_Ceviche">
+              <PropertyRef Name="codigo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario_C__codig__37A5467C">
+          <End Role="Ceviche" Type="Self.Ceviche" Multiplicity="1" />
+          <End Role="Usuario_Ceviche" Type="Self.Usuario_Ceviche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ceviche">
+              <PropertyRef Name="codigo_ceviche" />
+            </Principal>
+            <Dependent Role="Usuario_Ceviche">
+              <PropertyRef Name="codigo_ceviche" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ConsultarUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ProyectoProgramacionModelStoreContainer">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ceviche" EntityType="Self.Ceviche" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Error" EntityType="Self.Error" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor_Ceviche" EntityType="Self.Proveedor_Ceviche" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario_Ceviche" EntityType="Self.Usuario_Ceviche" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Error__codigo_us__33D4B598" Association="Self.FK__Error__codigo_us__33D4B598">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Error" EntitySet="Error" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__codigo___3E52440B" Association="Self.FK__Factura__codigo___3E52440B">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__codigo___3F466844" Association="Self.FK__Factura__codigo___3F466844">
+            <End Role="Promocion" EntitySet="Promocion" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__codigo___403A8C7D" Association="Self.FK__Factura__codigo___403A8C7D">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__codig__3A81B327" Association="Self.FK__Proveedor__codig__3A81B327">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Proveedor_Ceviche" EntitySet="Proveedor_Ceviche" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__codig__3B75D760" Association="Self.FK__Proveedor__codig__3B75D760">
+            <End Role="Ceviche" EntitySet="Ceviche" />
+            <End Role="Proveedor_Ceviche" EntitySet="Proveedor_Ceviche" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__codigo___30F848ED" Association="Self.FK__Usuario__codigo___30F848ED">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario_C__codig__36B12243" Association="Self.FK__Usuario_C__codig__36B12243">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Usuario_Ceviche" EntitySet="Usuario_Ceviche" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario_C__codig__37A5467C" Association="Self.FK__Usuario_C__codig__37A5467C">
+            <End Role="Ceviche" EntitySet="Ceviche" />
+            <End Role="Usuario_Ceviche" EntitySet="Usuario_Ceviche" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProyectoProgramacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="consecutivo_error" />
+          </Key>
+          <Property Name="consecutivo_error" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mensajeError" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ceviche">
+          <Key>
+            <PropertyRef Name="codigo_ceviche" />
+          </Key>
+          <Property Name="codigo_ceviche" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.Proveedor_Ceviche" FromRole="Ceviche" ToRole="Proveedor" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Usuario_Ceviche" FromRole="Ceviche" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="consecutivo_error" />
+          </Key>
+          <Property Name="consecutivo_error" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaHora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mensajeError" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codigo_usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Error__codigo_us__33D4B598" FromRole="Error" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="codigo_factura" />
+          </Key>
+          <Property Name="codigo_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_usuario" Type="Int32" Nullable="false" />
+          <Property Name="codigo_promocion" Type="Int32" Nullable="false" />
+          <Property Name="codigo_sucursal" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Factura__codigo___3E52440B" FromRole="Factura" ToRole="Usuario" />
+          <NavigationProperty Name="Promocion" Relationship="Self.FK__Factura__codigo___3F466844" FromRole="Factura" ToRole="Promocion" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK__Factura__codigo___403A8C7D" FromRole="Factura" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="codigo_promocion" />
+          </Key>
+          <Property Name="codigo_promocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_promocion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descuento" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Factura" Relationship="Self.FK__Factura__codigo___3F466844" FromRole="Promocion" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="codigo_proveedor" />
+          </Key>
+          <Property Name="codigo_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="compañia" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pais" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ceviche" Relationship="Self.Proveedor_Ceviche" FromRole="Proveedor" ToRole="Ceviche" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="codigo_rol" />
+          </Key>
+          <Property Name="codigo_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__codigo___30F848ED" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="codigo_sucursal" />
+          </Key>
+          <Property Name="codigo_sucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Factura" Relationship="Self.FK__Factura__codigo___403A8C7D" FromRole="Sucursal" ToRole="Factura" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="codigo_usuario" />
+          </Key>
+          <Property Name="codigo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="edad" Type="Int32" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contrasenna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <Property Name="codigo_rol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Error" Relationship="Self.FK__Error__codigo_us__33D4B598" FromRole="Usuario" ToRole="Error" />
+          <NavigationProperty Name="Factura" Relationship="Self.FK__Factura__codigo___3E52440B" FromRole="Usuario" ToRole="Factura" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK__Usuario__codigo___30F848ED" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Ceviche" Relationship="Self.Usuario_Ceviche" FromRole="Usuario" ToRole="Ceviche" />
+        </EntityType>
+        <Association Name="FK__Error__codigo_us__33D4B598">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Error" Type="Self.Error" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="codigo_usuario" />
+            </Principal>
+            <Dependent Role="Error">
+              <PropertyRef Name="codigo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__codigo___3E52440B">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="codigo_usuario" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="codigo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__codigo___3F466844">
+          <End Role="Promocion" Type="Self.Promocion" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promocion">
+              <PropertyRef Name="codigo_promocion" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="codigo_promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Factura__codigo___403A8C7D">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="codigo_sucursal" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="codigo_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__codigo___30F848ED">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="codigo_rol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="codigo_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Proveedor_Ceviche">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+          <End Role="Ceviche" Type="Self.Ceviche" Multiplicity="*" />
+        </Association>
+        <Association Name="Usuario_Ceviche">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <End Role="Ceviche" Type="Self.Ceviche" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ProyectoProgramacionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="Ceviche" EntityType="Self.Ceviche" />
+          <EntitySet Name="Error" EntityType="Self.Error" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Error__codigo_us__33D4B598" Association="Self.FK__Error__codigo_us__33D4B598">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Error" EntitySet="Error" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__codigo___3E52440B" Association="Self.FK__Factura__codigo___3E52440B">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__codigo___3F466844" Association="Self.FK__Factura__codigo___3F466844">
+            <End Role="Promocion" EntitySet="Promocion" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Factura__codigo___403A8C7D" Association="Self.FK__Factura__codigo___403A8C7D">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__codigo___30F848ED" Association="Self.FK__Usuario__codigo___30F848ED">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="Proveedor_Ceviche" Association="Self.Proveedor_Ceviche">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Ceviche" EntitySet="Ceviche" />
+          </AssociationSet>
+          <AssociationSet Name="Usuario_Ceviche" Association="Self.Usuario_Ceviche">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Ceviche" EntitySet="Ceviche" />
+          </AssociationSet>
+          <FunctionImport Name="ConsultarUsuarios" ReturnType="Collection(ProyectoProgramacionModel.ConsultarUsuarios_Result)" />
+        </EntityContainer>
+        <ComplexType Name="ConsultarUsuarios_Result">
+          <Property Type="Int32" Name="codigo_usuario" Nullable="false" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="estado" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProyectoProgramacionModelStoreContainer" CdmEntityContainer="ProyectoProgramacionEntities">
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="consecutivo_error" ColumnName="consecutivo_error" />
+                <ScalarProperty Name="fechaHora" ColumnName="fechaHora" />
+                <ScalarProperty Name="mensajeError" ColumnName="mensajeError" />
+                <ScalarProperty Name="origen" ColumnName="origen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ceviche">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Ceviche">
+              <MappingFragment StoreEntitySet="Ceviche">
+                <ScalarProperty Name="codigo_ceviche" ColumnName="codigo_ceviche" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Error">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Error">
+              <MappingFragment StoreEntitySet="Error">
+                <ScalarProperty Name="consecutivo_error" ColumnName="consecutivo_error" />
+                <ScalarProperty Name="fechaHora" ColumnName="fechaHora" />
+                <ScalarProperty Name="mensajeError" ColumnName="mensajeError" />
+                <ScalarProperty Name="origen" ColumnName="origen" />
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factura">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="codigo_factura" ColumnName="codigo_factura" />
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="codigo_promocion" ColumnName="codigo_promocion" />
+                <ScalarProperty Name="codigo_sucursal" ColumnName="codigo_sucursal" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promocion">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Promocion">
+              <MappingFragment StoreEntitySet="Promocion">
+                <ScalarProperty Name="codigo_promocion" ColumnName="codigo_promocion" />
+                <ScalarProperty Name="descripcion_promocion" ColumnName="descripcion_promocion" />
+                <ScalarProperty Name="descuento" ColumnName="descuento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedor">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="codigo_proveedor" ColumnName="codigo_proveedor" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="compañia" ColumnName="compañia" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="codigo_rol" ColumnName="codigo_rol" />
+                <ScalarProperty Name="tipo_rol" ColumnName="tipo_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="codigo_sucursal" ColumnName="codigo_sucursal" />
+                <ScalarProperty Name="nombre_sucursal" ColumnName="nombre_sucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="ProyectoProgramacionModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="contrasenna" ColumnName="contrasenna" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="codigo_rol" ColumnName="codigo_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Proveedor_Ceviche" TypeName="ProyectoProgramacionModel.Proveedor_Ceviche" StoreEntitySet="Proveedor_Ceviche">
+            <EndProperty Name="Proveedor">
+              <ScalarProperty Name="codigo_proveedor" ColumnName="codigo_proveedor" />
+            </EndProperty>
+            <EndProperty Name="Ceviche">
+              <ScalarProperty Name="codigo_ceviche" ColumnName="codigo_ceviche" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Usuario_Ceviche" TypeName="ProyectoProgramacionModel.Usuario_Ceviche" StoreEntitySet="Usuario_Ceviche">
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+            </EndProperty>
+            <EndProperty Name="Ceviche">
+              <ScalarProperty Name="codigo_ceviche" ColumnName="codigo_ceviche" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarUsuarios" FunctionName="ProyectoProgramacionModel.Store.ConsultarUsuarios">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProyectoProgramacionModel.ConsultarUsuarios_Result">
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

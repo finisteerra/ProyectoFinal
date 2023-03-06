@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4000bc7648e04ea088753963d3269d92" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Bitacora" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Ceviche" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Error" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Factura" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Promocion" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Proveedor" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Rol" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Sucursal" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoProgramacionModel.Usuario" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoProgramacionModel.FK__Error__codigo_us__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoProgramacionModel.FK__Factura__codigo___3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoProgramacionModel.FK__Factura__codigo___3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoProgramacionModel.FK__Factura__codigo___403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoProgramacionModel.FK__Usuario__codigo___30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoProgramacionModel.Proveedor_Ceviche" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoProgramacionModel.Usuario_Ceviche" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

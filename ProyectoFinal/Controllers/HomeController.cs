@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProyectoFinal.Entities;
+using ProyectoFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +10,43 @@ namespace ProyectoFinal.Controllers
 {
     public class HomeController : Controller
     {
+        UsuariosModel usuariosModel = new UsuariosModel();
+
+        //Métodos de Iniciar Sesión
+
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult IniciarSesion(UsuariosEnt entidad)
         {
-            ViewBag.Message = "Your application description page.";
+            try
+            {
+                var resultado = usuariosModel.ValidarUsuario(entidad);
 
-            return View();
+                if (resultado)
+                    return View();
+                else
+                {
+                    ViewBag.mensaje = "Sus credenciales no fueron validados";
+                    return View("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Index");
+            }
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

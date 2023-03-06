@@ -17,19 +17,19 @@
     <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
     <meta name="author" content="codedthemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap/css/bootstrap.min.css">
     <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/icon/font-awesome/css/font-awesome.min.css">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/jquery.mCustomScrollbar.css">
 </head>
 
 <body>
@@ -68,8 +68,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="index.html">
-                                <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                            <a href="@Url.Action("IniciarSesion","Home")">
+                                <img class="img-fluid" src="~/assets/images/logo.png" alt="Theme-Logo" />
                             </a>
                             <a class="mobile-options">
                                 <i class="ti-more"></i>
@@ -109,7 +109,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="assets/images/avatar-2.jpg" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius" src="~/assets/images/avatar-2.jpg" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Usuario 1</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -119,7 +119,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius" src="~/assets/images/avatar-4.jpg" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Joseph William</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -129,7 +129,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="d-flex align-self-center img-radius" src="assets/images/avatar-3.jpg" alt="Generic placeholder image">
+                                                <img class="d-flex align-self-center img-radius" src="~/assets/images/avatar-3.jpg" alt="Generic placeholder image">
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Sara Soudein</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -142,7 +142,7 @@
 
                                 <li class="user-profile header-notification">
                                     <a href="#!">
-                                        <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                        <img src="~/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                                         <span>John Doe</span>
                                         <i class="ti-angle-down"></i>
                                     </a>
@@ -164,7 +164,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="auth-normal-sign-in.html">
+                                            <a href="@Url.Action("IniciarSesion","Home")">
                                                 <i class="ti-layout-sidebar-left"></i> Salir
                                             </a>
                                         </li>
@@ -183,7 +183,7 @@
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu de navegacion</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="active">
-                                        <a href="index.html">
+                                        <a href="@Url.Action("IniciarSesion","Home")">
                                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Inicio</span>
                                             <span class="pcoded-mcaret"></span>
@@ -227,7 +227,7 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class=" ">
-                                                <a href="auth-normal-sign-in.html">
+                                                <a href="@Url.Action("IniciarSesion","Home")">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Login</span>
                                                     <span class="pcoded-mcaret"></span>
@@ -374,7 +374,7 @@
                                                                                 <th>Transaction ID</th>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod2.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod2.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002344</td>
                                                                                 <td>John Deo</td>
                                                                                 <td>05-01-2017</td>
@@ -382,7 +382,7 @@
                                                                                 <td>#7234486</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod3.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod3.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002653</td>
                                                                                 <td>Eugine Turner</td>
                                                                                 <td>04-01-2017</td>
@@ -390,7 +390,7 @@
                                                                                 <td>#7234417</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002156</td>
                                                                                 <td>Jacqueline Howell</td>
                                                                                 <td>03-01-2017</td>
@@ -416,7 +416,7 @@
                                                                                 <th>Transaction ID</th>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod3.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod3.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002653</td>
                                                                                 <td>Eugine Turner</td>
                                                                                 <td>04-01-2017</td>
@@ -424,7 +424,7 @@
                                                                                 <td>#7234417</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002156</td>
                                                                                 <td>Jacqueline Howell</td>
                                                                                 <td>03-01-2017</td>
@@ -450,7 +450,7 @@
                                                                                 <th>Transaction ID</th>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod1.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod1.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002413</td>
                                                                                 <td>Jane Elliott</td>
                                                                                 <td>06-01-2017</td>
@@ -458,7 +458,7 @@
                                                                                 <td>#7234421</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod4.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002156</td>
                                                                                 <td>Jacqueline Howell</td>
                                                                                 <td>03-01-2017</td>
@@ -484,7 +484,7 @@
                                                                                 <th>Transaction ID</th>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod1.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod1.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002413</td>
                                                                                 <td>Jane Elliott</td>
                                                                                 <td>06-01-2017</td>
@@ -492,7 +492,7 @@
                                                                                 <td>#7234421</td>
                                                                             </tr>
                                                                             <tr>
-                                                                                <td><img src="assets/images/product/prod2.jpg" alt="prod img" class="img-fluid"></td>
+                                                                                <td><img src="~/assets/images/product/prod2.jpg" alt="prod img" class="img-fluid"></td>
                                                                                 <td>PNG002344</td>
                                                                                 <td>John Deo</td>
                                                                                 <td>05-01-2017</td>
@@ -550,7 +550,7 @@
                                                         </div>
                                                         <div class="card-block">
                                                             <div class="usre-image">
-                                                                <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                                                <img src="~/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                                                             </div>
                                                             <h6 class="f-w-600 m-t-25 m-b-10">Alessa Robert</h6>
                                                             <p class="text-muted">Active | Male | Born 23.05.1992</p>
@@ -607,23 +607,23 @@
                                                             <ul class="feed-blog">
                                                                 <li class="active-feed">
                                                                     <div class="feed-user-img">
-                                                                        <img src="assets/images/avatar-3.jpg" class="img-radius " alt="User-Profile-Image">
+                                                                        <img src="~/assets/images/avatar-3.jpg" class="img-radius " alt="User-Profile-Image">
                                                                     </div>
                                                                     <h6><span class="label label-danger">File</span> Eddie uploaded new files: <small class="text-muted">2 hours ago</small></h6>
                                                                     <p class="m-b-15 m-t-15">hii <b> everone</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                                                     <div class="row">
                                                                         <div class="col-auto text-center">
-                                                                            <img src="assets/images/blog/blog-r-1.jpg" alt="img" class="img-fluid img-100">
+                                                                            <img src="~/assets/images/blog/blog-r-1.jpg" alt="img" class="img-fluid img-100">
                                                                             <h6 class="m-t-15 m-b-0">Old Scooter</h6>
                                                                             <p class="text-muted m-b-0"><small>PNG-100KB</small></p>
                                                                         </div>
                                                                         <div class="col-auto text-center">
-                                                                            <img src="assets/images/blog/blog-r-2.jpg" alt="img" class="img-fluid img-100">
+                                                                            <img src="~/assets/images/blog/blog-r-2.jpg" alt="img" class="img-fluid img-100">
                                                                             <h6 class="m-t-15 m-b-0">Wall Art</h6>
                                                                             <p class="text-muted m-b-0"><small>PNG-150KB</small></p>
                                                                         </div>
                                                                         <div class="col-auto text-center">
-                                                                            <img src="assets/images/blog/blog-r-3.jpg" alt="img" class="img-fluid img-100">
+                                                                            <img src="~/assets/images/blog/blog-r-3.jpg" alt="img" class="img-fluid img-100">
                                                                             <h6 class="m-t-15 m-b-0">Microphone</h6>
                                                                             <p class="text-muted m-b-0"><small>PNG-150KB</small></p>
                                                                         </div>
@@ -631,20 +631,20 @@
                                                                 </li>
                                                                 <li class="diactive-feed">
                                                                     <div class="feed-user-img">
-                                                                        <img src="assets/images/avatar-4.jpg" class="img-radius " alt="User-Profile-Image">
+                                                                        <img src="~/assets/images/avatar-4.jpg" class="img-radius " alt="User-Profile-Image">
                                                                     </div>
                                                                     <h6><span class="label label-success">Task</span>Sarah marked the Pending Review: <span class="text-c-green"> Trash Can Icon Design</span><small class="text-muted">2 hours ago</small></h6>
                                                                 </li>
                                                                 <li class="diactive-feed">
                                                                     <div class="feed-user-img">
-                                                                        <img src="assets/images/avatar-2.jpg" class="img-radius " alt="User-Profile-Image">
+                                                                        <img src="~/assets/images/avatar-2.jpg" class="img-radius " alt="User-Profile-Image">
                                                                     </div>
                                                                     <h6><span class="label label-primary">comment</span> abc posted a task:  <span class="text-c-green">Design a new Homepage</span>  <small class="text-muted">6 hours ago</small></h6>
                                                                     <p class="m-b-15 m-t-15" hii <b> everone</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                                                 </li>
                                                                 <li class="active-feed">
                                                                     <div class="feed-user-img">
-                                                                        <img src="assets/images/avatar-3.jpg" class="img-radius " alt="User-Profile-Image">
+                                                                        <img src="~/assets/images/avatar-3.jpg" class="img-radius " alt="User-Profile-Image">
                                                                     </div>
                                                                     <h6><span class="label label-warning">Task</span>Sarah marked : <span class="text-c-green"> do Icon Design</span><small class="text-muted">10 hours ago</small></h6>
                                                                 </li>
@@ -678,31 +678,31 @@
                     <ul class="iew-download">
                         <li>
                             <a href="http://www.google.com/chrome/">
-                                <img src="assets/images/browser/chrome.png" alt="Chrome">
+                                <img src="~/assets/images/browser/chrome.png" alt="Chrome">
                                 <div>Chrome</div>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.mozilla.org/en-US/firefox/new/">
-                                <img src="assets/images/browser/firefox.png" alt="Firefox">
+                                <img src="~/assets/images/browser/firefox.png" alt="Firefox">
                                 <div>Firefox</div>
                             </a>
                         </li>
                         <li>
                             <a href="http://www.opera.com">
-                                <img src="assets/images/browser/opera.png" alt="Opera">
+                                <img src="~/assets/images/browser/opera.png" alt="Opera">
                                 <div>Opera</div>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.apple.com/safari/">
-                                <img src="assets/images/browser/safari.png" alt="Safari">
+                                <img src="~/assets/images/browser/safari.png" alt="Safari">
                                 <div>Safari</div>
                             </a>
                         </li>
                         <li>
                             <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                                <img src="assets/images/browser/ie.png" alt="">
+                                <img src="~/assets/images/browser/ie.png" alt="">
                                 <div>IE (9 & above)</div>
                             </a>
                         </li>
@@ -713,28 +713,28 @@
             <![endif]-->
             <!-- Warning Section Ends -->
             <!-- Required Jquery -->
-            <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
-            <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
-            <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-            <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="~/assets/js/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="~/assets/js/jquery-ui/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="~/assets/js/popper.js/popper.min.js"></script>
+            <script type="text/javascript" src="~/assets/js/bootstrap/js/bootstrap.min.js"></script>
             <!-- jquery slimscroll js -->
-            <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+            <script type="text/javascript" src="~/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
             <!-- modernizr js -->
-            <script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+            <script type="text/javascript" src="~/assets/js/modernizr/modernizr.js"></script>
             <!-- am chart -->
-            <script src="assets/pages/widget/amchart/amcharts.min.js"></script>
-            <script src="assets/pages/widget/amchart/serial.min.js"></script>
+            <script src="~/assets/pages/widget/amchart/amcharts.min.js"></script>
+            <script src="~/assets/pages/widget/amchart/serial.min.js"></script>
             <!-- Chart js -->
-            <script type="text/javascript" src="assets/js/chart.js/Chart.js"></script>
+            <script type="text/javascript" src="~/assets/js/chart.js/Chart.js"></script>
             <!-- Todo js -->
-            <script type="text/javascript " src="assets/pages/todo/todo.js "></script>
+            <script type="text/javascript " src="~/assets/pages/todo/todo.js "></script>
             <!-- Custom js -->
-            <script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.min.js"></script>
-            <script type="text/javascript" src="assets/js/script.js"></script>
-            <script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
-            <script src="assets/js/pcoded.min.js"></script>
-            <script src="assets/js/vartical-demo.js"></script>
-            <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script type="text/javascript" src="~/assets/pages/dashboard/custom-dashboard.min.js"></script>
+            <script type="text/javascript" src="~/assets/js/script.js"></script>
+            <script type="text/javascript " src="~/assets/js/SmoothScroll.js"></script>
+            <script src="~/assets/js/pcoded.min.js"></script>
+            <script src="~/assets/js/vartical-demo.js"></script>
+            <script src="~/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     </body>
 
 </html>
