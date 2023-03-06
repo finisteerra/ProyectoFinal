@@ -17,21 +17,12 @@ namespace ProyectoFinal.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            try
-            {
                 return View();
-            }
-            catch (Exception ex)
-            {
-                return View();
-            }
         }
 
         [HttpPost]
         public ActionResult IniciarSesion(UsuariosEnt entidad)
         {
-            try
-            {
                 var resultado = usuariosModel.ValidarUsuario(entidad);
 
                 if (resultado)
@@ -41,12 +32,7 @@ namespace ProyectoFinal.Controllers
                     ViewBag.mensaje = "Sus credenciales no fueron validados";
                     return View("Index");
                 }
-            }
-            catch (Exception ex)
-            {
-                return View("Index");
-            }
         }
-
+        
     }
 }

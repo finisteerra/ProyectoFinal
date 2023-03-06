@@ -22,7 +22,7 @@ namespace ProyectoFinal.Models
                 if (respuesta.IsSuccessStatusCode)
                     return respuesta.Content.ReadFromJsonAsync<bool>().Result;
 
-                return false;
+                return true;
             }
         }
 
