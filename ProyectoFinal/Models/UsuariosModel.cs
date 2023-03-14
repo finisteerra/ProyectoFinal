@@ -16,7 +16,7 @@ namespace ProyectoFinal.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(entidad);
-                string url = "https://localhost:44399/api/ValidarUsuario";
+                string url = "https://localhost:44386/api/ValidarUsuario";
                 HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
