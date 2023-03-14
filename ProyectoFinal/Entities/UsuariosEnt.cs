@@ -7,8 +7,8 @@ namespace ProyectoFinal.Entities
 {
     public class UsuariosEnt
     {
-        public string correo { get; set; }
-
-        public string contrasenna { get; set; }
+        public string CorreoElectronico { get; set; }
+        public string Contrasenna { get; set; }
+        public string ConfirmarContrasenna { get; set; }
     }
 }
