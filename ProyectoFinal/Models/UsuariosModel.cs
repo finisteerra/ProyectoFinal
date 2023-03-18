@@ -25,7 +25,8 @@ namespace ProyectoFinal.Models
                 return true;
             }
         }
-        
+
+
         public string BuscarCorreo(string ValidarCorreo)
         {
             using (var client = new HttpClient())
