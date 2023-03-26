@@ -14,12 +14,25 @@ namespace ProyectoFinal.Controllers
          LogsModel logsModel = new LogsModel();
 
         //Métodos de Iniciar Sesión
-
-        //Métodos de Iniciar Sesión
         [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult IniciarSesion()
+        {
+            try
+            {
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                RegistrarBitacora(ex, ControllerContext);
+                return View();
+            }
         }
 
         [HttpPost]
