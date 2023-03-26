@@ -1,4 +1,4 @@
-﻿using ProyectoFinal.Entities;
+using ProyectoFinal.Entities;
 using ProyectoFinal.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,9 @@ namespace ProyectoFinal.Controllers
     {
          UsuariosModel usuariosModel = new UsuariosModel();
          LogsModel logsModel = new LogsModel();
-        
+
+        //Métodos de Iniciar Sesión
+
         //Métodos de Iniciar Sesión
         [HttpGet]
         public ActionResult Index()
