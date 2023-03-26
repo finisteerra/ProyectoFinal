@@ -12,7 +12,7 @@ namespace ProyectoFinal.Models
     public class UsuariosModel
     {
 
-        public bool ValidarUsuario(UsuariosEnt entidad)
+        public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
             using (var client = new HttpClient())
             {
@@ -21,9 +21,9 @@ namespace ProyectoFinal.Models
                 HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
-                    return respuesta.Content.ReadFromJsonAsync<bool>().Result;
+                    return respuesta.Content.ReadFromJsonAsync<UsuariosEnt>().Result;
 
-                return true;
+                return new UsuariosEnt();
             }
         }
 
