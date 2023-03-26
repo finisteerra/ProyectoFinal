@@ -12,28 +12,6 @@ namespace ProyectoFinal.Controllers
     {
          UsuariosModel usuariosModel = new UsuariosModel();
          LogsModel logsModel = new LogsModel();
-
-        //Métodos de Iniciar Sesión
-
-        [HttpGet]
-        public ActionResult Index()
-        {
-                return View();
-        }
-
-        [HttpPost]
-        public ActionResult IniciarSesion(UsuariosEnt entidad)
-        {
-                var resultado = usuariosModel.ValidarUsuario(entidad);
-
-                if (resultado)
-                    return View();
-                else
-                {
-                    ViewBag.mensaje = "Sus credenciales no fueron validados";
-                    return View("Index");
-                }
-        }
         
         //Métodos de Iniciar Sesión
         [HttpGet]
