@@ -40,8 +40,12 @@ namespace ProyectoFinal.Controllers
         {
             var resultado = usuariosModel.ValidarUsuario(entidad);
 
-            if (resultado)
+            if (resultado != null)
+            {
+                ViewBag.correo = resultado.CorreoElectronico;
                 return View();
+            }
+                
             else
             {
                 ViewBag.mensaje = "Sus credenciales no fueron validados";
