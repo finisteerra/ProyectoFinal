@@ -42,6 +42,34 @@ namespace ProyectoFinal.Models
                 return new List<UsuariosEnt>();
             }
         }
+        
+        public UsuariosEnt ConsultarUsuario(long q)
+        {
+            using (var client = new HttpClient())
+            {
+                string url = "https://localhost:44372/api/ConsultarUsuario?q=" + q;
+
+                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
+                HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<UsuariosEnt>().Result;
+
+                return new UsuariosEnt();
+            }
+        }
+
+        public void ActualizarUsuarios(UsuariosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44372/api/ActualizarUsuarios";
+
+                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
+                HttpResponseMessage respuesta = client.PutAsync(url, body).GetAwaiter().GetResult();
+            }
+        }
 
         public string BuscarCorreo(string ValidarCorreo)
         {
