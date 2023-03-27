@@ -1,4 +1,4 @@
-﻿@model ProyectoFinal.Entities.UsuariosEnt
+@model ProyectoFinal.Entities.UsuariosEnt
 
 @{
     ViewBag.Title = "RecuperarContrasenna";
@@ -27,7 +27,7 @@
                         <div class="auth-box">
                             <div class="row m-b-20">
                                 <div class="col-md-12">
-                                    <h3 class="text-left txt-primary">Entrar</h3>
+                                    <h3 class="text-left txt-primary">Recuperar contraseña</h3>
                                 </div>
                             </div>
                             @using (Html.BeginForm("RecuperarContrasenna", "Home", FormMethod.Post, new { @class = "pt-3" }))
@@ -39,6 +39,7 @@
                                        @class = "form-control form-control-lg",
                                        @placeholder = "Correo Electrónico",
                                        @required = true,
+                                       @autocomplete = "off",
                                        @onblur = "BuscarCorreo();"
                                    })
                                 </div>
@@ -69,34 +70,5 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script src="~/FuncionesJS/RecuperarContrasenna.js"></script>
