@@ -57,6 +57,20 @@ namespace ProyectoFinal.Models
             return "ERROR";
         }
 
+        public int RegistrarUsuario(UsuariosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44372//api/RegistrarUsuario";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<int>().Result;
+
+                return 0;
+            }
+        }
 
         public void RecuperarContrasenna(UsuariosEnt entidad)
         {
