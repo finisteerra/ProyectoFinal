@@ -53,6 +53,40 @@ namespace ProyectoFinal.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult RegistrarUsuario()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                RegistrarBitacora(ex, ControllerContext);
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult RegistrarUsuario(UsuariosEnt entidad)
+        {
+            try
+            {
+                if (usuariosModel.RegistrarUsuario(entidad) > 0)
+                    return View("index");
+                else
+                {
+                    ViewBag.mensaje = "No se pudo registrar su cuenta";
+                    return View("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                RegistrarBitacora(ex, ControllerContext);
+                return View("Index");
+            }
+        }
+
         //Recuperar Contraseña
 
         [HttpPost]
