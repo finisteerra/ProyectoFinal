@@ -12,12 +12,30 @@ namespace ProyectoFinal.Controllers
     {
         UsuariosModel model = new UsuariosModel();
         //ProvinciasModel modelProvincias = new ProvinciasModel();
-
+        
+        
         [HttpGet]
         public ActionResult ConsultarUsuarios()
         {
             var resultado = model.ConsultarUsuarios();
             return View(resultado);
+        }
+
+        [HttpGet]
+        public ActionResult ActualizarUsuarios(long q)
+        {
+            var resultado = model.ConsultarUsuario(q);
+
+            ViewBag.ListadoRoles = modelRoles.ConsultarRoles();
+
+            return View(resultado);
+        }
+
+        [HttpPost]
+        public ActionResult ActualizarUsuarios(UsuariosEnt entidad)
+        {
+            model.ActualizarUsuarios(entidad);
+            return RedirectToAction("ConsultarUsuarios", "Usuarios");
         }
 
     }
