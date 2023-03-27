@@ -20,30 +20,5 @@ namespace ProyectoFinal.Controllers
             return View(resultado);
         }
 
-        //[HttpGet]
-        //public ActionResult ActualizarUsuarios(long q)
-        //{
-        //    var resultado = model.ConsultarUsuario(q);
-
-        //    ViewBag.ListadoProvincias = modelProvincias.ConsultarProvincias();
-        //    ViewBag.ListadoRoles = modelProvincias.ConsultarRoles();
-
-        //    return View(resultado);
-        //}
-
-        //[HttpPost]
-        //public ActionResult ActualizarUsuarios(UsuariosEnt entidad)
-        //{
-        //    model.ActualizarUsuarios(entidad);
-        //    return RedirectToAction("ConsultarUsuarios", "Usuarios");
-        //}
-
-        //[HttpPost]
-        //public ActionResult CambiarEstado(long id)
-        //{
-        //    model.CambiarEstadoUsuario(id);
-        //    return Json("Ok", JsonRequestBehavior.AllowGet);
-        //}
-
     }
 }
