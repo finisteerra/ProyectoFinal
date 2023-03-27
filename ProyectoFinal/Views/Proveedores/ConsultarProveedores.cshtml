@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProyectoFinal.Entities.ProveedoresEnt>
+
+@{
+    ViewBag.Title = "ConsultarProveedores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-1 grid-margin stretch-card">
+    </div>
+
+    <div class="col-md-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proveedores</h4>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="row">
+                            <th class="col-sm-3">Nombre</th>
+                            <th class="col-sm-3">Apellido</th>
+                            <th class="col-sm-2">Compañía</th>
+                            <th class="col-sm-2">Pais</th>
+                            <th class="col-sm-2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr class="row">
+                                <td class="col-sm-3">@item.Nombre</td>
+                                <td class="col-sm-3">@item.Apellido</td>
+                                <td class="col-sm-2">@item.Compannia</td>
+                                <td class="col-sm-2">@item.Pais</td>
+
+                                <td class="col-sm-2">
+                                    <a href="@Url.Action("ActualizarProveedores","Proveedores", new { q = item.ConsecutivoProveedor})" class="ti-reload"></a>
+
+                                    <a href="#" class="ti-trash openModal" data-toggle="modal" data-target="#exampleModalCenter"
+                                       data-backdrop="static" data-keyboard="false" data-id=@item.ConsecutivoProveedor></a>
+
+                                <td />
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

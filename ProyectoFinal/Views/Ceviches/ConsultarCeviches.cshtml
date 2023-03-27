@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProyectoFinal.Entities.CevichesEnt>
+
+@{
+    ViewBag.Title = "ConsultarCeviches";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-1 grid-margin stretch-card">
+    </div>
+
+    <div class="col-md-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ceviches</h4>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="row">
+                            <th class="col-sm-6">Descripcion</th>
+                            <th class="col-sm-2">Precio</th>
+                            <th class="col-sm-2">Cantidad</th>
+                            <th class="col-sm-1">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr class="row">
+                                <td  class="col-sm-6">@item.Descripcion</td>
+                                <td  class="col-sm-2">@item.Precio</td>
+                                <td  class="col-sm-2">@item.Cantidad</td>
+
+                                <td  class="col-sm-1">
+                                    <a href="@Url.Action("ActualizarCeviches","Ceviches", new { q = item.ConsecutivoCeviche})" class="ti-reload"></a>
+
+                                    <a href="#" class="ti-trash openModal" data-toggle="modal" data-target="#exampleModalCenter"
+                                       data-backdrop="static" data-keyboard="false" data-id=@item.ConsecutivoCeviche></a>
+
+                                <td />
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
